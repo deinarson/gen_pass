@@ -28,7 +28,7 @@ In this example we generate a password of rand(12-20) characters, create a sha51
     Base64 SHA512 :  JDUkSXA0UkIxTklQTk5sMUI4UiRqUEc5WkhpUncxS1NNcHpPdlAvSVR5L253cmZwZVdwR0oyZHdzMGxXTWo5Cg==
 
     # Using the Base64 SHA512 ( shortened for this doc)
-    usermod -p $(echo 'JDUkSXA0UkIx... ...==' | base64 -d ) root
+    usermod -p "$(echo 'JDUkSXA0UkIx... ...==' | base64 -d )" root
 
 ### Option Using  with VIM
 Open a gpg encrypted file password file (with gpg.vim or pass), find the location you want to append to and execute the password generator with the following.
