@@ -6,7 +6,7 @@ build:
 	docker build -t ${REGISTRY}/${IMAGE}:${TAG} .
 
 push: build
-	docker push ${REGISTRY}/${IMAGE}:${TAG} 
+	docker push ${REGISTRY}/${IMAGE}:${TAG}
 
 entropy:
 	docker run --name entropy -d ${REGISTRY}/${IMAGE}:${TAG}
@@ -16,3 +16,9 @@ pass:
 
 debug:
 	docker run -i -t --rm  --entrypoint=/bin/sh ${REGISTRY}/${IMAGE}:${TAG}
+
+
+BRANCH=$(shell git rev-parse --abbrev-ref HEAD )
+
+git:
+	git push origin ${BRANCH}
